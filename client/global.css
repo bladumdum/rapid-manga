@@ -1,0 +1,83 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme for MangaHub
+   * Dark theme with orange accent colors
+   */
+  :root {
+    --background: 240 10% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 10% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 10% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 39 100% 50%;
+    --primary-foreground: 240 10% 8%;
+
+    --secondary: 240 8% 16%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 8% 20%;
+    --muted-foreground: 210 16% 60%;
+
+    --accent: 39 100% 50%;
+    --accent-foreground: 240 10% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 8% 20%;
+    --input: 240 10% 12%;
+    --ring: 39 100% 50%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-semibold hover:bg-secondary/90 transition-colors border border-muted;
+  }
+
+  .manga-card {
+    @apply bg-card rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer;
+  }
+
+  .glass-effect {
+    @apply bg-secondary/30 backdrop-blur-md border border-white/10;
+  }
+}
